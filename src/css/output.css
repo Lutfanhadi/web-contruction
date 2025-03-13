@@ -177,6 +177,9 @@
   }
 }
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
   .absolute {
     position: absolute;
   }
@@ -300,6 +303,15 @@
   .hidden {
     display: none;
   }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .list-item {
+    display: list-item;
+  }
+  .table {
+    display: table;
+  }
   .h-\[14px\] {
     height: 14px;
   }
@@ -345,12 +357,6 @@
   .w-\[70px\] {
     width: 70px;
   }
-  .w-\[80px\] {
-    width: 80px;
-  }
-  .w-\[88px\] {
-    width: 88px;
-  }
   .w-\[140px\] {
     width: 140px;
   }
@@ -363,11 +369,8 @@
   .w-\[210px\] {
     width: 210px;
   }
-  .w-\[360px\] {
-    width: 360px;
-  }
-  .w-\[400px\] {
-    width: 400px;
+  .w-\[340px\] {
+    width: 340px;
   }
   .w-fit {
     width: fit-content;
@@ -375,8 +378,14 @@
   .w-full {
     width: 100%;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .resize-none {
     resize: none;
@@ -407,6 +416,9 @@
   }
   .justify-end {
     justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
@@ -452,6 +464,10 @@
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-b-2 {
     border-bottom-style: var(--tw-border-style);
@@ -550,6 +566,9 @@
   .font-unlock {
     font-family: var(--font-unlock);
   }
+  .text-\[1px\] {
+    font-size: 1px;
+  }
   .text-\[10px\] {
     font-size: 10px;
   }
@@ -570,9 +589,6 @@
   }
   .text-\[24px\] {
     font-size: 24px;
-  }
-  .text-\[25px\] {
-    font-size: 25px;
   }
   .text-\[30px\] {
     font-size: 30px;
@@ -604,8 +620,15 @@
   .text-white {
     color: var(--color-white);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .opacity-200 {
     opacity: 200%;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .hover\:border-b-2 {
     &:hover {
@@ -1197,34 +1220,9 @@
       width: 828px;
     }
   }
-  .lg\:max-w-\[13px\] {
-    @media (width >= 64rem) {
-      max-width: 13px;
-    }
-  }
-  .lg\:max-w-\[134px\] {
-    @media (width >= 64rem) {
-      max-width: 134px;
-    }
-  }
-  .lg\:max-w-\[1349px\] {
-    @media (width >= 64rem) {
-      max-width: 1349px;
-    }
-  }
-  .lg\:max-w-\[1350px\] {
-    @media (width >= 64rem) {
-      max-width: 1350px;
-    }
-  }
   .lg\:max-w-\[1355px\] {
     @media (width >= 64rem) {
       max-width: 1355px;
-    }
-  }
-  .lg\:max-w-\[1360px\] {
-    @media (width >= 64rem) {
-      max-width: 1360px;
     }
   }
   .lg\:grid-cols-2 {
@@ -1468,4 +1466,9 @@
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
