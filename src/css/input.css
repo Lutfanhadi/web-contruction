@@ -4,9 +4,11 @@
   --color-primary: #191A19;
   --color-secondary: #FF7420;
   --color-white-transparan:  rgba(255, 255, 255, 0.5);
+  --color-sidebar: #00000080;
   --font-unlock: "Unlock", serif;
   --font-comforter: "Great Vibes", serif;
-  --font-poppins: "Poppins", serif:
+  --font-poppins: "Poppins", serif;
+  --breakpoint-xs: 330px;
   
 }
 

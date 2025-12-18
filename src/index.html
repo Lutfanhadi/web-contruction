@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth scroll-pt-16 md:scroll-pt-20 lg:scroll-pt-[90px]" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,20 +11,21 @@
       href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hentaigana:wght@200..900&family=Playwrite+AU+SA:wght@100..400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sigmar&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js"></script>
   </head>
-  <body class="font-poppins lg:max-w-[1355px] mx-auto">
-    <nav class="bg-primary sticky top-0 z-10">
-      <div class="flex items-center justify-between py-[25px] mx-[15px] md:mx-[40px] lg:mx-[80px]">
+  <body class="font-poppins">
+    <nav class="bg-primary sticky top-0 z-20">
+      <div class="flex items-center justify-between py-[25px] px-[15px] md:px-[40px] m-auto lg:max-w-7xl">
         <div class="flex items-center w-full justify-between md:w-full lg:w-0">
           <h1 class="font-unlock font-semibold text-secondary text-[20px] md:text-[25px] lg:text-[25px]">JHONTRAKTOR</h1>
-          <svg class="w-[30px] text-white block lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+          <svg id="toggleMenu" class="w-[30px] text-white block lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
         </div>
         <div class="flex items-center md:gap-[50px] lg:gap-[100px]">
-          <ul class="items-center gap-[24px] font-medium text-[16px] text-white hidden md:hidden lg:flex">
-            <li><a class="hover:text-secondary hover:border-b-2 hover:pb-[10px]" href="">Home</a></li>
-            <li><a class="hover:text-secondary hover:border-b-2 hover:pb-[10px]" href="">About Us</a></li>
-            <li><a class="hover:text-secondary hover:border-b-2 hover:pb-[10px]" href="">Services</a></li>
-            <li><a class="hover:text-secondary hover:border-b-2 hover:pb-[10px]" href="">Project</a></li>
+          <ul id="nav-links" class="items-center gap-[24px] font-medium text-[16px] text-white hidden md:hidden lg:flex">
+            <li><a class="nav-link hover:text-secondary hover:border-b-2 hover:pb-2" href="#home">Home</a></li>
+            <li><a class="nav-link hover:text-secondary hover:border-b-2 hover:pb-2" href="#aboutus">About Us</a></li>
+            <li><a class="nav-link hover:text-secondary hover:border-b-2 hover:pb-2" href="#services">Services</a></li>
+            <li><a class="nav-link hover:text-secondary hover:border-b-2 hover:pb-2" href="#project">Project</a></li>
           </ul>
           <div class="items-center gap-[24px] hidden md:hidden lg:flex">
             <div class="flex items-center">
@@ -47,37 +48,90 @@
       </div>
     </nav>
     
+     <!-- menu sidebar hp -->
+    <div id="containerSidbar" class="fixed inset-0 bg-sidebar transition-opacity duration-300 opacity-0 pointer-events-none z-30">
+        <div id="sidebarContent" class="absolute left-0 top-0 w-[60%] max-w-[300px] bg-secondary h-full transform -translate-x-full transition-transform duration-300 ease-in-out shadow-xl">
+            <div class="flex items-center justify-between bg-primary px-4 py-5 text-white">
+                <h1 class="font-bold text-[25px]">Menu</h1>
+                <svg id="toggleClose" class="w-[30px] cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg>
+            </div>
+            
+            <div>
+                <ul class="flex flex-col gap-[5px] text-[16px] font-medium py-2">
+                    <li><a class="sidebar-link block w-full p-2.5 rounded transition-colors" href="#home">Home</a></li>
+                    <li><a class="sidebar-link block w-full p-2.5 rounded transition-colors" href="#aboutus">Abaout Us</a></li>
+                    <li><a class="sidebar-link block w-full p-2.5 rounded transition-colors" href="#services">Services</a></li>
+                    <li><a class="sidebar-link block w-full p-2.5 rounded transition-colors" href="#project">project</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <main>
       <!-- Home -->
-        <section class="relative">
-            <img src="./assets/img/img_construction.jpg" alt="img contruction">
-            <div class="absolute top-5 left-[15px] md:top-[70px] md:left-[40px] lg:top-[130px] lg:left-[80px]">
-                <h1 class="font-semibold w-full text-white mb-[14px] text-[20px] md:text-[50px] lg:text-[60px]">We Prepare For The <span class="text-secondary">Future</span></h1>
-                <p class="text-white text-[14px] w-[340px] mb-[20px] md:mb-[65px] md:w-[460px] md:text-[18px] lg:mb-[65px] lg:w-[530px] lg:text-[20px]">We provide the best architectural design, contruction, and building maintance services for you.</p>
-                <div class="flex items-center gap-[24px]">
-                    <button class="flex items-center hover:bg-amber-800 justify-center gap-[8px] py-[5px] px-[20px] text-[12px] bg-secondary text-white rounded-[15px] md:text-[14px] md:py-[10px] md:px-[30px] lg:text-[16px] lg:py-[10px] lg:px-[30px]">Our Services<svg class="w-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 11V8L16 12L12 16V13H8V11H12ZM12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20Z"></path></svg></button>
-                    <button class="text-black rounded-[15px] hover:bg-secondary py-[5px] px-[20px] bg-white md:text-[14px] md:py-[10px] md:px-[30px] lg:text-[16px] lg:py-[10px] lg:px-[30px]">View Project</button>
+       <section id="home" class="relative w-full h-screen flex items-center">
+        <div class="absolute inset-0 w-full h-full">
+            <img class="w-full h-full object-cover" src="assets/img/img_construction.png" alt="construction background">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div class="w-full lg:w-[60%]">
+                <h1 class="font-semibold text-white leading-tight text-[40px] md:text-[60px] lg:text-[70px] mb-6">
+                    We Prepare <br> For The <span class="text-secondary">Future</span>
+                </h1>
+                
+                <p class="text-gray-300 text-sm md:text-base lg:text-lg w-[70%] md:w-[80%] mb-10 leading-relaxed">
+                    We provide the best architectural design, construction, and building maintenance services for you. Building dreams with precision and excellence.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-2 md:gap-4">
+                    <button class="flex items-center justify-center gap-2 py-2 px-4 md:py-3 md:px-8 bg-secondary text-white rounded hover:bg-orange-600 transition font-medium">
+                        Our Services
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                    <button class="py-2 px-4 bg-white text-black rounded hover:bg-gray-200 transition font-medium md:py-3 md:px-8">
+                        View Project
+                    </button>
                 </div>
             </div>
-            <div class="bg-secondary w-fit rounded-[15px] absolute -bottom-60 right-[15px] flex flex-col py-[15px] px-[10px] gap-2 md:gap-[10px] md:py-[20px] md:px-[20px] md:-bottom-14 md:right-3 lg:gap-[15px] lg:py-[53px] lg:px-[50px] lg:-bottom-24 lg:right-[80px]">
-                <div class="flex items-center gap-[10px]">
-                    <img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">
-                    <p class="font-medium text-white text-[12px] md:text-[12px] lg:text-[16px]">Quality Control System, 100% Satisfaction Guarantee</p class="text-[16px] font-medium text-white">
-                </div>
-                <div class="flex items-center gap-[10px]">
-                    <img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">
-                    <p class="font-medium text-white text-[12px] md:text-[12px] lg:text-[16px]">Highly Proffesional Staff, Accurate Testing Processes</p>
-                </div>
-                <div class="flex items-center gap-[10px]">
-                    <img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">
-                    <p class="font-medium text-white text-[12px] md:text-[12px] lg:text-[16px]">Unrivalled Workmanship, Proffesional and Qualified</p>
+        </div>
+
+        <div class="absolute -bottom-28 xs:-bottom-10 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:left-0 lg:right-0 w-full max-w-7xl px-5 mx-auto translate-y-1/2 z-10 pointer-events-none md:px-12 lg:bottom-0">
+            <div class="flex justify-end w-full">
+                <div class="bg-secondary rounded-lg shadow-2xl pointer-events-auto w-full p-5 md:p-10 lg:w-fit">
+                    <div class="flex flex-col gap-6">
+                        <!-- Item 1 -->
+                        <div class="flex items-start gap-4">
+                            <div class="min-w-[24px] mt-1 bg-white rounded-full p-1">
+                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <p class="font-medium text-white text-sm">Quality Control System, 100% Satisfaction Guarantee</p>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="flex items-start gap-4">
+                            <div class="min-w-[24px] mt-1 bg-white rounded-full p-1">
+                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <p class="font-medium text-white text-sm">Highly Professional Staff, Accurate Testing Processes</p>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="flex items-start gap-4">
+                            <div class="min-w-[24px] mt-1 bg-white rounded-full p-1">
+                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <p class="font-medium text-white text-sm">Unrivalled Workmanship, Professional and Qualified</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+       </section>
       <!-- Experience -->
-        <section class="bg-primary md:h-[770px] lg:h-[800px]">
-            <div class="mx-[15px] md:mx-[40px] lg:mx-[80px]">
-                <div class="flex pt-[30px] md:pt-[20px] lg:pt-[40px] lg:gap-[30px]">
+        <section id="aboutus" class="bg-primary">
+            <div class="px-[15px] md:px-[40px] m-auto lg:max-w-7xl lg:pb-10">
+                <div class="flex flex-wrap pt-60 justify-center xs:pt-40 gap-3 md:gap-5 xl:pt-10 lg:gap-[30px] xl:justify-start">
                     <div class="flex items-center gap-[2px]">
                         <p class="font-semibold text-secondary text-[18px] md:text-[22px] lg:text-[48px]">25+</p>
                         <p class="w-[70px] font-medium pt-[12px] text-white text-[12px] md:text-[12px] lg:text-[16px]">Years of Experience</p>
@@ -88,66 +142,92 @@
                     </div>
                     <div class="flex items-center gap-[2px]">
                         <p class="font-semibold text-secondary text-[18px] md:text-[22px] lg:text-[48px]">69+</p>
-                        <p class="font-medium pt-[12px] text-white md:w-[80px] text-[12px] md:text-[12px] lg:w-[105px] lg:text-[16px]">Winning Global Award</p>
+                        <p class="font-medium pt-[12px] text-white w-14 md:w-[100px] text-[12px] md:text-[12px] lg:w-[110px] lg:text-[16px]">Winning Global Award</p>
                     </div>
                 </div>
-                <div class="mt-[150px] md:flex md:mt-[70px] lg:flex lg:mt-[113px]">
+                <div class="mt-5 md:mt-16 lg:flex lg:mt-20">
                     <div>
-                        <img class="h-[320px] md:h-[420px] lg:h-[420px]" src="./assets/img/photo_construction_people.png" alt="photo contruction people">
+                        <img class="h-[320px] md:h-[420px] lg:h-[420px] w-full mx-auto" src="./assets/img/photo_construction_people.png" alt="photo contruction people">
                     </div>
-                    <div class="w-full md:w-[828px] lg:w-[828px]">
+                    <div class="w-full">
                         <h1 class="text-secondary font-semibold text-[40px] md:text-[50px] lg:text-[50px]">25 years </h1>
                         <h1 class="text-white font-semibold mb-[18px] text-[40px] md:text-[50px] lg:text-[50px]">of experience!</h1>
                         <p class="text-white text-justify mb-[25px] text-[12px] md:text-[16px] lg:text-[16px]">We have a team of experienced professionals who have been in the industry for over 25 years. Our contractors have a wealth of knowledge and skills that they have acquired over the years, making them experts in their field.</p>
                         <p class="text-white text-justify mb-[18px] text-[12px] md:text-[16px] lg:text-[16px]">With 25 years of experience, our contractors have a deep understanding of industry standards and regulations. We ensure that all our projects comply with the latest safety and building codes, and that the final product meets or exceeds our client's expectations.</p>
-                        <div class="w-[210px] pb-[30px] m:pb-0 lg:pb-0">
-                            <h2 class="text-white font-comforter text-[54px] mb-1.5 text-center md:text-[64px] lg:text-[64px]">jhon lbf</h2>
-                            <p class="text-white text-[14px] md:text-[16px] lg:text-[16px]">Henry Kurnia Adhi - Founder</p>
+                        <div class="pb-[30px] m:pb-0 lg:pb-0 max-w-50 md:max-w-60">
+                            <h2 class="text-white font-comforter text-5xl mb-1.5 text-center md:text-[64px] lg:text-[64px]">jhon lbf</h2>
+                            <p class="text-white text-[14px] md:text-[16px] lg:text-[16px] w-full">Henry Kurnia Adhi - Founder</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Featured Project -->
-        <section class="bg-secondary h-full pb-[30px]">
-          <div class="mx-[15px] md:mx-[40px] lg:mx-[80px]">
-            <div class="flex justify-center text-center text-white py-[38px] border-b-3 md:items-start md:gap-[80px] lg:items-center lg:gap-[150px]">
-                <div class="relative w-[170px] flex flex-col items-center justify-center">
-                  <h1 class="font-medium text-[12px] md:text-[16px] lg:text-[16px]">Evaluation And Signing Of The Contract</h1>
-                  <p class="text-[10px] font-medium pt-[12px] md:text-sm">Step 1</p>
-                  <div class="absolute top-[108px] w-[25px] h-[25px] bg-white-transparan rounded-full md:w-[35px] md:h-[35px] md:top-[125px] lg:w-[35px] lg:h-[35px] lg:top-[103px]">
-                    <button class="w-[14px] h-[14px] bg-white rounded-full my-[5.5px] mx-[5px] md:my-[8px] md:mx-[8px] md:w-[19px] md:h-[19px] lg:my-[8px] lg:mx-[8] lg:w-[19px] lg:h-[19px] "></button>
+        <section id="services" class="bg-secondary h-full pb-[30px]">
+          <div class="px-[15px] md:px-[40px] m-auto lg:max-w-7xl">
+            <div class="relative w-full max-w-6xl mx-auto">
+              <div class="hidden md:block absolute bottom-4 lg:bottom-5 left-0 w-full h-[3px] bg-white/20 z-0"></div>
+              <div class="flex flex-col pt-10 md:flex-row justify-between items-start px-10  w-full gap-y-10 md:items-end md:gap-x-4 md:px-0">
+                  <!-- STEP 1 -->
+                  <div class="flex flex-col items-center text-center w-full md:flex-1 relative z-10 group">
+                      <div class="mb-6 md:mb-8 min-h-[60px] flex flex-col justify-end">
+                          <h3 class="text-white font-medium text-lg md:text-base lg:text-xl leading-tight">
+                              Evaluation And Signing Of The Contract
+                          </h3>
+                          <p class="text-gray-300 text-sm font-medium mt-2">Step 1</p>
+                      </div>
+                      <div class="w-[35px] h-[35px] lg:w-[45px] lg:h-[45px] bg-white-transparent rounded-full flex items-center justify-center backdrop-blur-sm border border-white/10 transition-transform duration-300 group-hover:scale-110">
+                          <div class="w-[19px] h-[19px] lg:w-[24px] lg:h-[24px] bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
+                      </div>
                   </div>
-                </div>
 
-                <div class="relative w-[140px] flex flex-col items-center justify-center">
-                  <h1 class="font-medium text-[12px] w-[70px] md:text-[16px] md:w-[100px] lg:text-[16px] lg:w-[110px]">Preparation Of The Work Plan</h1>
-                  <p class="text-[10px] font-medium pt-[12px] md:text-sm">Step 2</p>
-                  <div class="absolute top-[108px] w-[25px] h-[25px] bg-white-transparan rounded-full md:w-[35px] md:h-[35px] md:top-[125px] lg:w-[35px] lg:h-[35px] lg:top-[103px]">
-                    <button class="w-[14px] h-[14px] bg-white rounded-full my-[5.5px] mx-[5px] md:my-[8px] md:mx-[8px] md:w-[19px] md:h-[19px] lg:my-[8px] lg:mx-[8] lg:w-[19px] lg:h-[19px] "></button>
+                  <!-- STEP 2 -->
+                  <div class="flex flex-col items-center text-center w-full md:flex-1 relative z-10 group">
+                      <div class="mb-6 md:mb-8 min-h-[60px] flex flex-col justify-end">
+                          <h3 class="text-white font-medium text-lg md:text-base lg:text-xl leading-tight px-4">
+                              Preparation Of The Work Plan
+                          </h3>
+                          <p class="text-gray-300 text-sm font-medium mt-2">Step 2</p>
+                      </div>
+                      
+                      <div class="w-[35px] h-[35px] lg:w-[45px] lg:h-[45px] bg-white-transparent rounded-full flex items-center justify-center backdrop-blur-sm border border-white/10 transition-transform duration-300 group-hover:scale-110">
+                          <div class="w-[19px] h-[19px] lg:w-[24px] lg:h-[24px] bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
+                      </div>
                   </div>
-                </div>
 
-                <div class="relative w-[140px] flex flex-col items-center justify-center">
-                  <h1 class="font-medium text-[12px] md:text-[16px] lg:text-[16px]">Implementation Of Quality Works</h1>
-                  <p class="text-[10px] font-medium pt-[12px] md:text-sm">Step 3</p>
-                  <div class="absolute top-[108px] w-[25px] h-[25px] bg-white-transparan rounded-full md:w-[35px] md:h-[35px] md:top-[125px] lg:w-[35px] lg:h-[35px] lg:top-[103px]">
-                    <button class="w-[14px] h-[14px] bg-white rounded-full my-[5.5px] mx-[5px] md:my-[8px] md:mx-[8px] md:w-[19px] md:h-[19px] lg:my-[8px] lg:mx-[8] lg:w-[19px] lg:h-[19px] "></button>
+                  <!-- STEP 3 -->
+                  <div class="flex flex-col items-center text-center w-full md:flex-1 relative z-10 group">
+                      <div class="mb-6 md:mb-8 min-h-[60px] flex flex-col justify-end">
+                          <h3 class="text-white font-medium text-lg md:text-base lg:text-xl leading-tight">
+                              Implementation Of Quality Works
+                          </h3>
+                          <p class="text-gray-300 text-sm font-medium mt-2">Step 3</p>
+                      </div>
+                      
+                      <div class="w-[35px] h-[35px] lg:w-[45px] lg:h-[45px] bg-white-transparent rounded-full flex items-center justify-center backdrop-blur-sm border border-white/10 transition-transform duration-300 group-hover:scale-110">
+                          <div class="w-[19px] h-[19px] lg:w-[24px] lg:h-[24px] bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
+                      </div>
                   </div>
-                </div>
 
-                <div class="relative w-[170px] flex flex-col items-center justify-center">
-                  <h1 class="font-medium text-[12px] md:text-[16px] lg:text-[16px]">Delivering The Project To The Customer</h1>
-                  <p class="text-[10px] font-medium pt-[12px] md:text-sm">Step 4</p>
-                  <div class="absolute top-[108px] w-[25px] h-[25px] bg-white-transparan rounded-full md:w-[35px] md:h-[35px] md:top-[125px] lg:w-[35px] lg:h-[35px] lg:top-[103px]">
-                    <button class="w-[14px] h-[14px] bg-white rounded-full my-[5.5px] mx-[5px] md:my-[8px] md:mx-[8px] md:w-[19px] md:h-[19px] lg:my-[8px] lg:mx-[8] lg:w-[19px] lg:h-[19px] "></button>
+                  <!-- STEP 4 -->
+                  <div class="flex flex-col items-center text-center w-full md:flex-1 relative z-10 group">
+                      <div class="mb-6 md:mb-8 min-h-[60px] flex flex-col justify-end">
+                          <h3 class="text-white font-medium text-lg md:text-base lg:text-xl leading-tight">
+                              Delivering The Project To The Customer
+                          </h3>
+                          <p class="text-gray-300 text-sm font-medium mt-2">Step 4</p>
+                      </div>
+                      
+                      <div class="w-[35px] h-[35px] lg:w-[45px] lg:h-[45px] bg-white-transparent rounded-full flex items-center justify-center backdrop-blur-sm border border-white/10 transition-transform duration-300 group-hover:scale-110">
+                          <div class="w-[19px] h-[19px] lg:w-[24px] lg:h-[24px] bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
+                      </div>
                   </div>
-                </div>
+              </div>
             </div>
             <div class="items-center justify-between mt-[66px] md:flex lg:flex">
-              <h1 class="font-semibold text-[30px] md:text-[30px] lg:text-[50px]">Featured Project</h1>
+              <h1 class="font-semibold text-[30px] text-center md:text-2xl md:text-start lg:text-4xl">Featured Project</h1>
               <div>
-                <ul class="flex items-center gap-[10px] mt-[20px] font-semibold text-white text-[12px] md:gap-[14px] md:text-[14px] md:mt-0 lg:gap-[14px] lg:text-[16px] lg:mt-0">
+                <ul class="flex flex-wrap items-center gap-3 mt-[20px] font-semibold text-white text-[12px] justify-center md:gap-[14px] md:text-[14px] md:justify-start md:mt-0 lg:gap-[14px] lg:text-[16px] lg:mt-0">
                   <li><a class="hover:text-black hover:border-b-2 hover:pb-[10px]" href="">Construction</a></li>
                   <li><a class="hover:text-black hover:border-b-2 hover:pb-[10px]" href="">Architecture</a></li>
                   <li><a class="hover:text-black hover:border-b-2 hover:pb-[10px]" href="">Building</a></li>
@@ -156,18 +236,19 @@
                 </ul>
               </div>
             </div>
-            <div class="flex flex-col gap-[10px] items-center justify-around mt-[49px] overflow-hidden md:gap-0 md:flex-row lg:gap-0 lg:flex-row">
+            <div class="flex flex-col gap-[10px] items-center justify-between mt-[49px] overflow-hidden md:gap-0 md:flex-row lg:gap-5 lg:flex-row">
               <img class="md:w-[220px] md:h-[280px] lg:w-[350px] lg:h-[413px]" src="./assets/img/sky.png" alt="img sky">
               <img class="md:w-[220px] md:h-[280px] lg:w-[350px] lg:h-[413px]" src="./assets/img/house.png" alt="img house">
               <img class="md:w-[220px] md:h-[280px] lg:w-[350px] lg:h-[413px]" src="./assets/img/apartemen.png" alt="img apartemen">
           </div>
           <p class="flex items-center gap-[10px] font-semibold text-[16px] justify-end mt-[22px] cursor-pointer">Explore All Projects <span><svg class="w-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 11H8V13H12V16L16 12L12 8V11Z"></path></svg></span></p>
+          </div>
         </section>
         <!-- Client -->
-         <section class="bg-primary">
-          <div class="mx-[15px] md:mx-[40px] lg:mx-[80px]">
+         <section id="project" class="bg-primary">
+          <div class="py-[52px] px-[15px] md:px-[40px] m-auto lg:max-w-7xl">
             <div class="text-white text-center">
-              <h1 class="text-[24px] font-semibold text-secondary pt-[52px] mb-[28px]">What Our Client Says</h1>
+              <h1 class="text-[24px] font-semibold text-secondary mb-[28px]">What Our Client Says</h1>
               <p class="font-normal mx-auto mb-[14px] text-[14px] md:w-full lg:w-[760px] md:text-[16px] lg:text-[16px]">I am very satisfied with the services. Their team is very professional and efficient in completing our project on time and at a very affordable cost. The quality of their work is very good and I highly recommend this company for any construction project.</p>
               <p class="text-[14px] font-medium mb-1 md:text-[16px] lg:text-[16px]">Tom DeLonge</p>
               <p class="font-medium text-[12px] md:text-[14px] lg:text-[14px]">CEO, Lexmark</p>
@@ -182,73 +263,105 @@
               <h1 class="text-white flex items-center gap-[6px]">Next <span><svg class="w-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span></h1>
             </div>
           </div>
-          <div class="mt-[42px] relative">
-            <img class="w-full h-[1360px] md:h-[930px] lg:h-[860px]" src="./assets/img/cover_Building.png" alt="">
-            <div class="absolute top-0 bg-linear-180 from-primary w-full h-full opacity-200 md:px-[40px] lg:px-[80px]">
-              <div class="mx-[15px] md:mx-[40px] lg:mx-[80px]">
-                <h1 class="text-white font-semibold text-center mt-[51px] text-[20px] md:text-[40px] lg:text-[50px]">Leading Way In Building & Civil Construction</h1>
-                <div class="grid grid-cols-4 items-center justify-center text-white font-medium mt-[15px] text-[10px] gap-2 md:gap-6 md:text-[16px] md:grid-cols-4 lg:gap-11 lg:text-[20px] lg:grid-cols-4 ">
-                  <p class="flex items-center gap-1 md:gap-[10px] lg:gap-[10px]"><img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">Professional Staff</p>
-                  <p class="flex items-center gap-1 md:gap-[10px] lg:gap-[10px]"><img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">100% Satisfaction</p>
-                  <p class="flex items-center gap-1 md:gap-[10px] lg:gap-[10px]"><img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">Accurate Testing</p>
-                  <p class="flex items-center gap-1 md:gap-[10px] lg:gap-[10px]"><img src="./assets/svg/icon-ceklis.svg" alt="svg ceklis">Transparent Pricing</p>
-                </div>
-              </div>
-              <div class="flex flex-col mt-[50px] md:gap-[40px] md:flex-row lg:gap-4 lg:flex-row lg:justify-between">
-                <div class="h-fit bg-secondary rounded-[15px] py-[20px] px-[25px] md:py-[32px] md:px-[43px] md:w-[763px] lg:w-[763px] lg:py-[42px] lg:px-[53px]">
-                  <h1 class="text-[20px] text-white font-medium mb-[24px]">Request A Quote</h1>
-                  <p class="text-white font-medium mb-[18px] text-[14px] md:text-[16px] lg:text-[16px]">Complete control over products allow us to our customers the best quality prices and services. We take great pride in everything that we do in Jhontraktor</p>
-                  <form class="grid grid-rows-1 gap-4 md:gap-[18px] md:grid-cols-2 lg:gap-[18px] lg:grid-cols-2 " action="">
-                      <input class="bg-white rounded-[15px] py-[15px] px-[20px]" type="text" placeholder="Name">
-                      <input class="bg-white rounded-[15px] py-[15px] px-[20px]" type="email" placeholder="Email">
-                      <input class="bg-white rounded-[15px] py-[15px] px-[20px] appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" type="number" placeholder="Phone">
-                      <input class="bg-white rounded-[15px] py-[15px] px-[20px]" type="text" placeholder="Select Your Service">
-                      <textarea class="w-full pt-[15px] px-[20px] pb-[60px] bg-white rounded-[15px] resize-none md:col-span-2 lg:col-span-2" name="" id="" placeholder="Additional Details!"></textarea>
-                      <input class="text-white bg-primary w-full py-[15px] rounded-[15px] md:col-span-2 lg:col-span-2 hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-600" type="submit" value="Submit Request">
-                  </form>
-                </div>
-                <div class="bg-secondary text-white rounded-[15px] w-full mt-[20px] py-[20px] px-[25px] md:w-[399px] md:py-[38px] md:px-[64px] md:mt-0 lg:w-[399px] lg:py-[42px] lg:px-[64px] lg:mt-0">
-                  <h1 class="text-[20px] font-medium mb-[14px] md:mb-[16px] lg:mb-[6px]">Contact Info</h1>
-                  <div class="flex flex-col gap-[14px] md:gap-[15px] lg:gap-[10px]">
-                    <div>
-                      <h2 class="text-[16px] md:text-[18px] lg:text-[18px]">Our Location</h2>
-                      <p class="text-[14px] md:text-[16px] lg:text-[16px]">18 Office Park Building 21th Floor Unit C. Jl. TB Simatupang Kav. 18, Jakarta Selatan ,12520</p>
-                    </div>
-                    <div>
-                      <h2 class="text-[16px] md:text-[18px] lg:text-[18px]">Quick Contact</h2>
-                      <p class="text-[14px] md:text-[16px] lg:text-[16px] w-[200px] md:w-[230px] lg:w-[230px]">Email : (+62) 877-2469-7246 Call Us : contact@jhontraktor.co</p>
-                    </div>
-                    <div>
-                      <h2 class="text-[16px] md:text-[18px] lg:text-[18px]">Opening Hours</h2>
-                      <p class="text-[14px] md:text-[16px] lg:text-[16px]">Monday - Friday 09:00 AM - 06:00 PM</p>
-                    </div>
-                    <div>
-                      <p class="text-[16px] md:text-[18px] lg:text-[18px]">Do You Have Any Question, Just Contact Us To Get Help!</p>
-                    </div>
+           <div class="relative w-full min-h-screen h-auto overflow-hidden flex flex-col">
+              <img class="absolute inset-0 w-full h-full object-cover z-0" src="./assets/img/cover_Building.png" alt="Cover Building">
+              <div id="placeholder-bg" class="absolute inset-0 w-full h-full bg-gray-800 hidden z-0"></div>
+              <div class="relative z-10 w-full h-full bg-gradient-to-t from-primary/50 to-primary min-h-screen flex flex-col justify-center py-[50px]">
+                  <div class="w-full max-w-7xl mx-auto px-[15px] md:px-[40px]">
+                      <div class="text-center mb-[40px]">
+                          <div>
+                              <h1 class="text-white font-semibold text-center text-[24px] md:text-[40px] lg:text-[50px] leading-tight">
+                                  Leading Way In Building &<br class="hidden md:block"/> Civil Construction
+                              </h1>
+                          </div>
+                          <div class="grid grid-cols-2 md:grid-cols-4 items-center justify-center text-white font-medium mt-[25px] text-[12px] gap-4 md:text-[16px] lg:text-[20px]">
+                              <div class="flex items-center justify-center gap-2">
+                                  <img src="assets/svg/icon-ceklis.svg" alt="svg ceklis">
+                                  <p>Professional Staff</p>
+                              </div>
+                              <div class="flex items-center justify-center gap-2">
+                                  <img src="assets/svg/icon-ceklis.svg" alt="svg ceklis">
+                                  <p>100% Satisfaction</p>
+                              </div>
+                              <div class="flex items-center justify-center gap-2">
+                                  <img src="assets/svg/icon-ceklis.svg" alt="svg ceklis">
+                                  <p>Accurate Testing</p>
+                              </div>
+                              <div class="flex items-center justify-center gap-2">
+                                  <img src="assets/svg/icon-ceklis.svg" alt="svg ceklis">
+                                  <p>Transparent Pricing</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="flex flex-col lg:flex-row gap-[20px] lg:gap-[30px] justify-between items-stretch">
+                          <div class="bg-secondary w-full lg:w-[65%] rounded-[15px] py-[30px] px-[20px] md:p-[40px]">
+                              <h1 class="text-[20px] md:text-[24px] text-white font-medium mb-[15px]">Request A Quote</h1>
+                              <p class="text-white font-medium mb-[25px] text-[14px] md:text-[16px] leading-relaxed">
+                                  Complete control over products allow us to offer our customers the best quality prices and services. We take great pride in everything that we do in Jhontraktor.
+                              </p>
+                              <form class="grid grid-cols-1 md:grid-cols-2 gap-4" action="">
+                                  <input class="bg-white rounded-[10px] py-[15px] px-[20px] w-full" type="text" placeholder="Name">
+                                  <input class="bg-white rounded-[10px] py-[15px] px-[20px] w-full" type="email" placeholder="Email">
+                                  <input class="bg-white rounded-[10px] py-[15px] px-[20px] w-full appearance-none" type="number" placeholder="Phone" min="0">
+                                  <input class="bg-white rounded-[10px] py-[15px] px-[20px] w-full" type="text" placeholder="Select Your Service">
+                                  
+                                  <textarea class="w-full py-[15px] px-[20px] bg-white rounded-[10px] resize-none h-[120px] md:col-span-2" name="" id="" placeholder="Additional Details!"></textarea>
+                                  
+                                  <input class="text-white bg-primary font-bold cursor-pointer w-full py-[15px] rounded-[10px] md:col-span-2 hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-600" type="submit" value="Submit Request">
+                              </form>
+                          </div>
+                          <div class="bg-secondary text-white rounded-[15px] w-full lg:w-[35%] py-[30px] px-[20px] md:p-[40px] flex flex-col h-full justify-between">
+                              <div>
+                                  <h1 class="text-[20px] md:text-[24px] font-medium mb-[20px]">Contact Info</h1>
+                                  <div class="flex flex-col gap-[20px]">
+                                      <div>
+                                          <h2 class="text-[16px] md:text-[18px] text-white mb-1">Our Location</h2>
+                                          <p class="text-[14px] md:text-[16px] w-[80%] md:w-[60%] lg:w-full">18 Office Park Building 21th Floor Unit C. Jl. TB Simatupang Kav. 18, Jakarta Selatan, 12520</p>
+                                      </div>
+                                      <div>
+                                          <h2 class="text-[16px] md:text-[18px] text-white mb-1">Quick Contact</h2>
+                                          <p class="text-[14px] md:text-[16px] break-words">Email: contact@jhontraktor.co<br>Call Us: (+62) 877-2469-7246</p>
+                                      </div>
+                                      <div>
+                                          <h2 class="text-[16px] md:text-[18px] text-white mb-1">Opening Hours</h2>
+                                          <p class="text-[14px] md:text-[16px]">Monday - Friday<br>09:00 AM - 06:00 PM</p>
+                                      </div>
+                                      <di>
+                                          <p class="text-[14px] md:text-[16px] italic">Do You Have Any Question? Just Contact Us To Get Help!</p>
+                                      </di>
+                                  </div>
+                              </div>
+                              <button class="text-[16px] md:text-[18px] font-bold bg-primary rounded-[10px] py-[15px] w-full mt-[30px] hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-600">Contact Us</button>
+                          </div>
+                      </div>
                   </div>
-                  <button class="text-[18px] bg-primary rounded-[15px] py-[15px] w-full mt-[20px] hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-600">Contact Us</button>
-                </div>
               </div>
-            </div>
           </div>
          </section>
          <!-- Sosial media -->
-         <section class="bg-primary md:h-[600px] lg:h-[377px]">
-          <div class="mx-[15px] md:mx-[40px] lg:mx-[80px] text-white py-[43px]">
+         <section class="bg-primary h-full">
+          <div class="px-[15px] md:px-[40px] m-auto lg:max-w-7xl text-white py-[43px]">
             <div class="flex flex-col justify-between md:flex-row lg:flex-row">
               <h1 class="font-unlock text-[20px] md:text-[23px] lg:text-[33px]">JHONTRAKTOR</h1>
-              <div class="flex items-center mt-[10px] md:mt-0 lg:mt-0">
+              <div class="flex items-center mt-[10px] md:mt-0">
                 <p class="flex items-center text-[14px] md:text-[18px] lg:text-[18px]">Subscribe To Our Newslatter :</p>
                 <div class="flex items-center border-b-2">
-                  <input class="pl-[19px] focus:outline-none text-[16px]" type="email" placeholder="Enter your email addres">
-                  <svg class="w-[24px] cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
+                  <input class="pl-5 focus:outline-none md:text-[16px]" type="email" placeholder="Enter your email addres">
+                  <svg class="w-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
                 </div>
               </div>
             </div>
-            <div class="mt-[32px] flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-[100px] lg:flex lg:flex-row lg:gap-[45px]">
+            <div class="mt-[32px] flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-14 lg:flex lg:flex-row lg:gap-10">
               <div>
                 <h1 class="text-[16px] font-medium mb-[14px] md:text-[18px] lg:text-[18px]">About Us</h1>
-                <p class="text-[14px] text-justify md:w-[360px] md:text-[16px] lg:text-[16px] lg:w-[460px] ">We have the confidence to provide the best service for you, with the support of Professional and Certified HR that we currently have and the high-quality materials we use and structured work techniques, we will be able to realize timely completion of work.</p>
+                <p class="text-[14px] text-justify md:text-[16px] lg:text-[16px] max-w-[400px]">We have the confidence to provide the best service for you, with the support of Professional and Certified HR that we currently have and the high-quality materials we use and structured work techniques, we will be able to realize timely completion of work.</p>
+                <div class="flex items-center gap-[17px] mt-[24px]">
+                  <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path></svg>
+                  <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.4024 21V14.0344H17.7347L18.0838 11.3265H15.4024V9.59765C15.4024 8.81364 15.62 8.27934 16.7443 8.27934L18.1783 8.27867V5.85676C17.9302 5.82382 17.0791 5.75006 16.0888 5.75006C14.0213 5.75006 12.606 7.01198 12.606 9.32952V11.3265H10.2677V14.0344H12.606V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15.4024Z"></path></svg>
+                  <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2125 5.65605C21.4491 5.99375 20.6395 6.21555 19.8106 6.31411C20.6839 5.79132 21.3374 4.9689 21.6493 4.00005C20.8287 4.48761 19.9305 4.83077 18.9938 5.01461C18.2031 4.17106 17.098 3.69303 15.9418 3.69434C13.6326 3.69434 11.7597 5.56661 11.7597 7.87683C11.7597 8.20458 11.7973 8.52242 11.8676 8.82909C8.39047 8.65404 5.31007 6.99005 3.24678 4.45941C2.87529 5.09767 2.68005 5.82318 2.68104 6.56167C2.68104 8.01259 3.4196 9.29324 4.54149 10.043C3.87737 10.022 3.22788 9.84264 2.64718 9.51973C2.64654 9.5373 2.64654 9.55487 2.64654 9.57148C2.64654 11.5984 4.08819 13.2892 6.00199 13.6731C5.6428 13.7703 5.27232 13.8194 4.90022 13.8191C4.62997 13.8191 4.36771 13.7942 4.11279 13.7453C4.64531 15.4065 6.18886 16.6159 8.0196 16.6491C6.53813 17.8118 4.70869 18.4426 2.82543 18.4399C2.49212 18.4402 2.15909 18.4205 1.82812 18.3811C3.74004 19.6102 5.96552 20.2625 8.23842 20.2601C15.9316 20.2601 20.138 13.8875 20.138 8.36111C20.138 8.1803 20.1336 7.99886 20.1256 7.81997C20.9443 7.22845 21.651 6.49567 22.2125 5.65605Z"></path></svg>
+                  <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0281 2.00073C14.1535 2.00259 14.7238 2.00855 15.2166 2.02322L15.4107 2.02956C15.6349 2.03753 15.8561 2.04753 16.1228 2.06003C17.1869 2.1092 17.9128 2.27753 18.5503 2.52503C19.2094 2.7792 19.7661 3.12253 20.3219 3.67837C20.8769 4.2342 21.2203 4.79253 21.4753 5.45003C21.7219 6.0867 21.8903 6.81337 21.9403 7.87753C21.9522 8.1442 21.9618 8.3654 21.9697 8.58964L21.976 8.78373C21.9906 9.27647 21.9973 9.84686 21.9994 10.9723L22.0002 11.7179C22.0003 11.809 22.0003 11.903 22.0003 12L22.0002 12.2821L21.9996 13.0278C21.9977 14.1532 21.9918 14.7236 21.9771 15.2163L21.9707 15.4104C21.9628 15.6347 21.9528 15.8559 21.9403 16.1225C21.8911 17.1867 21.7219 17.9125 21.4753 18.55C21.2211 19.2092 20.8769 19.7659 20.3219 20.3217C19.7661 20.8767 19.2069 21.22 18.5503 21.475C17.9128 21.7217 17.1869 21.89 16.1228 21.94C15.8561 21.9519 15.6349 21.9616 15.4107 21.9694L15.2166 21.9757C14.7238 21.9904 14.1535 21.997 13.0281 21.9992L12.2824 22C12.1913 22 12.0973 22 12.0003 22L11.7182 22L10.9725 21.9993C9.8471 21.9975 9.27672 21.9915 8.78397 21.9768L8.58989 21.9705C8.36564 21.9625 8.14444 21.9525 7.87778 21.94C6.81361 21.8909 6.08861 21.7217 5.45028 21.475C4.79194 21.2209 4.23444 20.8767 3.67861 20.3217C3.12278 19.7659 2.78028 19.2067 2.52528 18.55C2.27778 17.9125 2.11028 17.1867 2.06028 16.1225C2.0484 15.8559 2.03871 15.6347 2.03086 15.4104L2.02457 15.2163C2.00994 14.7236 2.00327 14.1532 2.00111 13.0278L2.00098 10.9723C2.00284 9.84686 2.00879 9.27647 2.02346 8.78373L2.02981 8.58964C2.03778 8.3654 2.04778 8.1442 2.06028 7.87753C2.10944 6.81253 2.27778 6.08753 2.52528 5.45003C2.77944 4.7917 3.12278 4.2342 3.67861 3.67837C4.23444 3.12253 4.79278 2.78003 5.45028 2.52503C6.08778 2.27753 6.81278 2.11003 7.87778 2.06003C8.14444 2.04816 8.36564 2.03847 8.58989 2.03062L8.78397 2.02433C9.27672 2.00969 9.8471 2.00302 10.9725 2.00086L13.0281 2.00073ZM12.0003 7.00003C9.23738 7.00003 7.00028 9.23956 7.00028 12C7.00028 14.7629 9.23981 17 12.0003 17C14.7632 17 17.0003 14.7605 17.0003 12C17.0003 9.23713 14.7607 7.00003 12.0003 7.00003ZM12.0003 9.00003C13.6572 9.00003 15.0003 10.3427 15.0003 12C15.0003 13.6569 13.6576 15 12.0003 15C10.3434 15 9.00028 13.6574 9.00028 12C9.00028 10.3431 10.3429 9.00003 12.0003 9.00003ZM17.2503 5.50003C16.561 5.50003 16.0003 6.05994 16.0003 6.74918C16.0003 7.43843 16.5602 7.9992 17.2503 7.9992C17.9395 7.9992 18.5003 7.4393 18.5003 6.74918C18.5003 6.05994 17.9386 5.49917 17.2503 5.50003Z"></path></svg>
+                </div>
               </div>
               <div>
                 <h1 class="text-[18px] font-medium mb-[14px] md:text-[18px] lg:text-[18px]">Office</h1>
@@ -260,7 +373,7 @@
                 <p class="text-[14px] md:text-[16px] lg:text-[16px]">Email : contact@jhontracktor.com</p>
                 <p class="text-[14px] md:text-[16px] lg:text-[16px]">Phone : (+62) 877-2469-7246</p>
               </div>
-              <div>
+              <div class="w-24">
                 <h1 class="text-[18px] font-medium mb-[14px] md:text-[18px] lg:text-[18px]">Link</h1>
                 <ul class="text-[14px] md:text-[16px] lg:text-[16px]">
                   <li><a href=""></a>Home</li>
@@ -270,17 +383,11 @@
                 </ul>
               </div>
             </div>
-            <div class="flex items-center gap-[17px] mt-[24px]">
-              <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path></svg>
-              <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.4024 21V14.0344H17.7347L18.0838 11.3265H15.4024V9.59765C15.4024 8.81364 15.62 8.27934 16.7443 8.27934L18.1783 8.27867V5.85676C17.9302 5.82382 17.0791 5.75006 16.0888 5.75006C14.0213 5.75006 12.606 7.01198 12.606 9.32952V11.3265H10.2677V14.0344H12.606V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15.4024Z"></path></svg>
-              <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2125 5.65605C21.4491 5.99375 20.6395 6.21555 19.8106 6.31411C20.6839 5.79132 21.3374 4.9689 21.6493 4.00005C20.8287 4.48761 19.9305 4.83077 18.9938 5.01461C18.2031 4.17106 17.098 3.69303 15.9418 3.69434C13.6326 3.69434 11.7597 5.56661 11.7597 7.87683C11.7597 8.20458 11.7973 8.52242 11.8676 8.82909C8.39047 8.65404 5.31007 6.99005 3.24678 4.45941C2.87529 5.09767 2.68005 5.82318 2.68104 6.56167C2.68104 8.01259 3.4196 9.29324 4.54149 10.043C3.87737 10.022 3.22788 9.84264 2.64718 9.51973C2.64654 9.5373 2.64654 9.55487 2.64654 9.57148C2.64654 11.5984 4.08819 13.2892 6.00199 13.6731C5.6428 13.7703 5.27232 13.8194 4.90022 13.8191C4.62997 13.8191 4.36771 13.7942 4.11279 13.7453C4.64531 15.4065 6.18886 16.6159 8.0196 16.6491C6.53813 17.8118 4.70869 18.4426 2.82543 18.4399C2.49212 18.4402 2.15909 18.4205 1.82812 18.3811C3.74004 19.6102 5.96552 20.2625 8.23842 20.2601C15.9316 20.2601 20.138 13.8875 20.138 8.36111C20.138 8.1803 20.1336 7.99886 20.1256 7.81997C20.9443 7.22845 21.651 6.49567 22.2125 5.65605Z"></path></svg>
-              <svg class="w-[30px] hover:text-gray-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0281 2.00073C14.1535 2.00259 14.7238 2.00855 15.2166 2.02322L15.4107 2.02956C15.6349 2.03753 15.8561 2.04753 16.1228 2.06003C17.1869 2.1092 17.9128 2.27753 18.5503 2.52503C19.2094 2.7792 19.7661 3.12253 20.3219 3.67837C20.8769 4.2342 21.2203 4.79253 21.4753 5.45003C21.7219 6.0867 21.8903 6.81337 21.9403 7.87753C21.9522 8.1442 21.9618 8.3654 21.9697 8.58964L21.976 8.78373C21.9906 9.27647 21.9973 9.84686 21.9994 10.9723L22.0002 11.7179C22.0003 11.809 22.0003 11.903 22.0003 12L22.0002 12.2821L21.9996 13.0278C21.9977 14.1532 21.9918 14.7236 21.9771 15.2163L21.9707 15.4104C21.9628 15.6347 21.9528 15.8559 21.9403 16.1225C21.8911 17.1867 21.7219 17.9125 21.4753 18.55C21.2211 19.2092 20.8769 19.7659 20.3219 20.3217C19.7661 20.8767 19.2069 21.22 18.5503 21.475C17.9128 21.7217 17.1869 21.89 16.1228 21.94C15.8561 21.9519 15.6349 21.9616 15.4107 21.9694L15.2166 21.9757C14.7238 21.9904 14.1535 21.997 13.0281 21.9992L12.2824 22C12.1913 22 12.0973 22 12.0003 22L11.7182 22L10.9725 21.9993C9.8471 21.9975 9.27672 21.9915 8.78397 21.9768L8.58989 21.9705C8.36564 21.9625 8.14444 21.9525 7.87778 21.94C6.81361 21.8909 6.08861 21.7217 5.45028 21.475C4.79194 21.2209 4.23444 20.8767 3.67861 20.3217C3.12278 19.7659 2.78028 19.2067 2.52528 18.55C2.27778 17.9125 2.11028 17.1867 2.06028 16.1225C2.0484 15.8559 2.03871 15.6347 2.03086 15.4104L2.02457 15.2163C2.00994 14.7236 2.00327 14.1532 2.00111 13.0278L2.00098 10.9723C2.00284 9.84686 2.00879 9.27647 2.02346 8.78373L2.02981 8.58964C2.03778 8.3654 2.04778 8.1442 2.06028 7.87753C2.10944 6.81253 2.27778 6.08753 2.52528 5.45003C2.77944 4.7917 3.12278 4.2342 3.67861 3.67837C4.23444 3.12253 4.79278 2.78003 5.45028 2.52503C6.08778 2.27753 6.81278 2.11003 7.87778 2.06003C8.14444 2.04816 8.36564 2.03847 8.58989 2.03062L8.78397 2.02433C9.27672 2.00969 9.8471 2.00302 10.9725 2.00086L13.0281 2.00073ZM12.0003 7.00003C9.23738 7.00003 7.00028 9.23956 7.00028 12C7.00028 14.7629 9.23981 17 12.0003 17C14.7632 17 17.0003 14.7605 17.0003 12C17.0003 9.23713 14.7607 7.00003 12.0003 7.00003ZM12.0003 9.00003C13.6572 9.00003 15.0003 10.3427 15.0003 12C15.0003 13.6569 13.6576 15 12.0003 15C10.3434 15 9.00028 13.6574 9.00028 12C9.00028 10.3431 10.3429 9.00003 12.0003 9.00003ZM17.2503 5.50003C16.561 5.50003 16.0003 6.05994 16.0003 6.74918C16.0003 7.43843 16.5602 7.9992 17.2503 7.9992C17.9395 7.9992 18.5003 7.4393 18.5003 6.74918C18.5003 6.05994 17.9386 5.49917 17.2503 5.50003Z"></path></svg>
-            </div>
           </div>
          </section>     
     </main>
     <footer>
-      <h1 class="bg-primary text-white text-[12px] text-center py-2">Copyright © 2023 CandyAP. All Rights Reserved</h1>
+      <h1 class="bg-primary text-white text-[12px] text-center py-4">Copyright © 2023 CandyAP. All Rights Reserved</h1>
     </footer>
   </body>
 </html>
