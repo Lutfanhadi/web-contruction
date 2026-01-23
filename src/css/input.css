@@ -1,15 +1,13 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Comforter+Brush&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hentaigana:wght@200..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+HU:wght@100..400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sigmar&family=Unlock&display=swap");
 
 @theme {
-  --color-primary: #191A19;
-  --color-secondary: #FF7420;
-  --color-white-transparan:  rgba(255, 255, 255, 0.5);
+  --color-primary: #191a19;
+  --color-secondary: #ff7420;
+  --color-white-transparan: rgba(255, 255, 255, 0.5);
   --color-sidebar: #00000080;
   --font-unlock: "Unlock", serif;
   --font-comforter: "Great Vibes", serif;
   --font-poppins: "Poppins", serif;
   --breakpoint-xs: 330px;
-  
 }
-
-  
